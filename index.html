@@ -1,0 +1,13 @@
+//Creates new ABC
+var page = new ABC({
+    "type": "blank", //Blank, blob, or overwrite
+    "url": "https://doomproxer.vecel.app" //Any url
+})
+//Set the type
+page.setType("blank")
+//Set the url
+page.setUrl("https://doomproxer.vercel.app")
+//Get iframe code
+console.log(page.getCode())
+//Open page
+page.open()
