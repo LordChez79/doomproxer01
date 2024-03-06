@@ -1,13 +1,37 @@
-//Creates new ABC
-var page = new ABC({
-    "type": "blank", //Blank, blob, or overwrite
-    "url": "https://doomproxer.vecel.app" //Any url
-})
-//Set the type
-page.setType("blank")
-//Set the url
-page.setUrl("https://doomproxer.vercel.app")
-//Get iframe code
-console.log(page.getCode())
-//Open page
-page.open()
+<html>
+ 
+  <head>
+  </head>
+ 
+  <body>
+    <button>Play Now</button>
+    <script>
+      var urlObj = new window.URL(window.location.href);
+      var url = "https://doomproxer.vercel.app";
+      if (url) {
+        var win;
+ 
+        document.querySelector('button').onclick = function() {
+          if (win) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+          }
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "Play Now";
+        };
+      }
+ 
+    </script>
+  </body>
+ 
+</html>
